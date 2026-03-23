@@ -234,11 +234,19 @@
 
       // Redirecionar para link externo ao clicar em "PAGAR FRETE"
       const btn = document.getElementById('btnPagarFrete');
+      
       if (btn) {
         btn.addEventListener('click', (e) => {
           e.preventDefault();
-          // SUBSTITUA PELO SEU LINK EXTERNO:
-          window.location.href = "https://pay.rosamisterio.site/checkout/87c775b8-4935-4368-8584-c4c64a2732a7";
+      
+          const baseUrl = "https://pay.rosamisterio.site/checkout/87c775b8-4935-4368-8584-c4c64a2732a7";
+          const params = window.location.search;
+      
+          const finalUrl = params
+            ? baseUrl + params
+            : baseUrl;
+      
+          window.location.href = finalUrl;
         });
       }
     });
